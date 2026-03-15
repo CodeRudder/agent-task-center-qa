@@ -5,3 +5,13 @@ playwright/.cache/
 dist/
 *.log
 .env
+
+# 测试截图（不上传）
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+test-plans/screenshots/
+screenshots/
