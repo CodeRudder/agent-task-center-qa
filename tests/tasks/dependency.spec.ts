@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const BASE_URL = 'http://localhost:3100';
+const BASE_URL = 'http://localhost:4100';
 
 test.describe('任务依赖关系功能测试', () => {
   test.beforeEach(async ({ page }) => {

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const BASE_URL = 'http://localhost:3100';
+const BASE_URL = 'http://localhost:4100';
 const LOGIN_URL = `${BASE_URL}/login`;
 
 // 测试数据

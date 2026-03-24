@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3100',
+    baseURL: 'http://localhost:4100',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -21,9 +21,4 @@ export default defineConfig({
     },
   ],
 
-  webServer: {
-    command: 'echo "Using existing server"',
-    url: 'http://localhost:3100',
-    reuseExistingServer: true,
-  },
 });
