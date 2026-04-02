@@ -1,0 +1,27 @@
+{
+  "name": "qa-playwright-tests",
+  "version": "1.0.0",
+  "description": "QA Playwright automated tests for Agent Task Management System",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test smoke/",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "testing",
+    "qa",
+    "smoke-test"
+  ],
+  "author": "QA Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "1.58.2"
+  }
+}

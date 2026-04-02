@@ -1,0 +1,638 @@
+{
+  "config": {
+    "configFile": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/playwright.config.js",
+    "rootDir": "/home/gongdewei/workspace/team-docs/qa-reports/scripts",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/gongdewei/workspace/team-docs/qa-reports/scripts",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 1800000
+      },
+      {
+        "outputDir": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/home/gongdewei/workspace/team-docs/qa-reports/scripts",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 1800000
+      },
+      {
+        "outputDir": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/home/gongdewei/workspace/team-docs/qa-reports/scripts",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 1800000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "test-results/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.2",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "smoke/login-to-task-list.spec.js",
+      "file": "smoke/login-to-task-list.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "冒烟测试 - UI登录到任务列表",
+          "file": "smoke/login-to-task-list.spec.js",
+          "line": 16,
+          "column": 6,
+          "specs": [
+            {
+              "title": "SMOKE-001: 用户登录流程",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 1800000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 531,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:22:16",
+                        "location": {
+                          "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                          "column": 16,
+                          "line": 22
+                        },
+                        "snippet": "  20 |     \n  21 |     // 访问登录页面\n> 22 |     await page.goto(BASE_URL);\n     |                ^\n  23 |     \n  24 |     // 清除缓存\n  25 |     await page.evaluate(() => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                            "column": 16,
+                            "line": 22
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n\n  20 |     \n  21 |     // 访问登录页面\n> 22 |     await page.goto(BASE_URL);\n     |                ^\n  23 |     \n  24 |     // 清除缓存\n  25 |     await page.evaluate(() => {\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:22:16"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "🚀 开始冒烟测试：用户登录流程\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-20T19:57:16.381Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-001-用户登录流程-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-001-用户登录流程-chromium/video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                        "column": 16,
+                        "line": 22
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d84254b4f3210a8b38b-b03056fae2fae32304e5",
+              "file": "smoke/login-to-task-list.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "SMOKE-002: 任务列表页面显示",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 1800000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 334,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:54:16",
+                        "location": {
+                          "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                          "column": 16,
+                          "line": 54
+                        },
+                        "snippet": "  52 |     \n  53 |     // 登录\n> 54 |     await page.goto(BASE_URL);\n     |                ^\n  55 |     await page.evaluate(() => {\n  56 |       localStorage.clear();\n  57 |       sessionStorage.clear();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                            "column": 16,
+                            "line": 54
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n\n  52 |     \n  53 |     // 登录\n> 54 |     await page.goto(BASE_URL);\n     |                ^\n  55 |     await page.evaluate(() => {\n  56 |       localStorage.clear();\n  57 |       sessionStorage.clear();\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:54:16"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "🚀 开始冒烟测试：任务列表页面显示\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-20T19:57:18.590Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-002-任务列表页面显示-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-002-任务列表页面显示-chromium/video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                        "column": 16,
+                        "line": 54
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d84254b4f3210a8b38b-1b6b61a3bb6d92d3585d",
+              "file": "smoke/login-to-task-list.spec.js",
+              "line": 50,
+              "column": 3
+            },
+            {
+              "title": "SMOKE-003: Token保存验证",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 1800000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 328,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:83:16",
+                        "location": {
+                          "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                          "column": 16,
+                          "line": 83
+                        },
+                        "snippet": "  81 |     \n  82 |     // 登录\n> 83 |     await page.goto(BASE_URL);\n     |                ^\n  84 |     await page.evaluate(() => {\n  85 |       localStorage.clear();\n  86 |       sessionStorage.clear();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                            "column": 16,
+                            "line": 83
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n\n  81 |     \n  82 |     // 登录\n> 83 |     await page.goto(BASE_URL);\n     |                ^\n  84 |     await page.evaluate(() => {\n  85 |       localStorage.clear();\n  86 |       sessionStorage.clear();\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:83:16"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "🚀 开始冒烟测试：Token保存验证\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-20T19:57:20.330Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒-815df-登录到任务列表-SMOKE-003-Token保存验证-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒-815df-登录到任务列表-SMOKE-003-Token保存验证-chromium/video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                        "column": 16,
+                        "line": 83
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d84254b4f3210a8b38b-fe2ffe460410f1d886a0",
+              "file": "smoke/login-to-task-list.spec.js",
+              "line": 79,
+              "column": 3
+            },
+            {
+              "title": "SMOKE-004: 核心功能可用性",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 1800000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 403,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:115:16",
+                        "location": {
+                          "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                          "column": 16,
+                          "line": 115
+                        },
+                        "snippet": "  113 |     \n  114 |     // 登录\n> 115 |     await page.goto(BASE_URL);\n      |                ^\n  116 |     await page.evaluate(() => {\n  117 |       localStorage.clear();\n  118 |       sessionStorage.clear();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                            "column": 16,
+                            "line": 115
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n\n  113 |     \n  114 |     // 登录\n> 115 |     await page.goto(BASE_URL);\n      |                ^\n  116 |     await page.evaluate(() => {\n  117 |       localStorage.clear();\n  118 |       sessionStorage.clear();\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:115:16"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "🚀 开始冒烟测试：核心功能可用性\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-20T19:57:22.386Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-004-核心功能可用性-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-004-核心功能可用性-chromium/video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                        "column": 16,
+                        "line": 115
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d84254b4f3210a8b38b-7430ddc77ff690a8c173",
+              "file": "smoke/login-to-task-list.spec.js",
+              "line": 111,
+              "column": 3
+            },
+            {
+              "title": "SMOKE-005: 页面性能验证",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 1800000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 372,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:157:16",
+                        "location": {
+                          "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                          "column": 16,
+                          "line": 157
+                        },
+                        "snippet": "  155 |     \n  156 |     // 登录\n> 157 |     await page.goto(BASE_URL);\n      |                ^\n  158 |     await page.evaluate(() => {\n  159 |       localStorage.clear();\n  160 |       sessionStorage.clear();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                            "column": 16,
+                            "line": 157
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n\n  155 |     \n  156 |     // 登录\n> 157 |     await page.goto(BASE_URL);\n      |                ^\n  158 |     await page.evaluate(() => {\n  159 |       localStorage.clear();\n  160 |       sessionStorage.clear();\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:157:16"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "🚀 开始冒烟测试：页面性能验证\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-20T19:57:24.367Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-005-页面性能验证-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-005-页面性能验证-chromium/video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                        "column": 16,
+                        "line": 157
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d84254b4f3210a8b38b-9097e5632fdb8463bd5a",
+              "file": "smoke/login-to-task-list.spec.js",
+              "line": 151,
+              "column": 3
+            },
+            {
+              "title": "SMOKE-006: 错误检查",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 1800000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 961,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:190:16",
+                        "location": {
+                          "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                          "column": 16,
+                          "line": 190
+                        },
+                        "snippet": "  188 |     \n  189 |     // 登录\n> 190 |     await page.goto(BASE_URL);\n      |                ^\n  191 |     await page.evaluate(() => {\n  192 |       localStorage.clear();\n  193 |       sessionStorage.clear();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                            "column": 16,
+                            "line": 190
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n\n  188 |     \n  189 |     // 登录\n> 190 |     await page.goto(BASE_URL);\n      |                ^\n  191 |     await page.evaluate(() => {\n  192 |       localStorage.clear();\n  193 |       sessionStorage.clear();\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:190:16"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "🚀 开始冒烟测试：错误检查\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-20T19:57:26.981Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-006-错误检查-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-006-错误检查-chromium/video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                        "column": 16,
+                        "line": 190
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d84254b4f3210a8b38b-0a1558328bf4c79f3e2c",
+              "file": "smoke/login-to-task-list.spec.js",
+              "line": 178,
+              "column": 3
+            },
+            {
+              "title": "SMOKE-007: 完整流程集成测试",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 1800000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 414,
+                      "error": {
+                        "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n",
+                        "stack": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:212:16",
+                        "location": {
+                          "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                          "column": 16,
+                          "line": 212
+                        },
+                        "snippet": "  210 |     \n  211 |     // 1. 访问登录页面\n> 212 |     await page.goto(BASE_URL);\n      |                ^\n  213 |     await page.evaluate(() => {\n  214 |       localStorage.clear();\n  215 |       sessionStorage.clear();"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                            "column": 16,
+                            "line": 212
+                          },
+                          "message": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3101/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3101/\", waiting until \"load\"\u001b[22m\n\n\n  210 |     \n  211 |     // 1. 访问登录页面\n> 212 |     await page.goto(BASE_URL);\n      |                ^\n  213 |     await page.evaluate(() => {\n  214 |       localStorage.clear();\n  215 |       sessionStorage.clear();\n    at /home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js:212:16"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "🚀 开始冒烟测试：完整流程集成测试\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-03-20T19:57:30.466Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-007-完整流程集成测试-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/test-results/smoke-login-to-task-list-冒烟测试---UI登录到任务列表-SMOKE-007-完整流程集成测试-chromium/video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/gongdewei/workspace/team-docs/qa-reports/scripts/smoke/login-to-task-list.spec.js",
+                        "column": 16,
+                        "line": 212
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0d84254b4f3210a8b38b-e60ad52808a3df4739a9",
+              "file": "smoke/login-to-task-list.spec.js",
+              "line": 208,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-03-20T19:57:15.184Z",
+    "duration": 15882.418000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}
