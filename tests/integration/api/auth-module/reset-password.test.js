@@ -28,6 +28,8 @@ describe('密码重置API集成测试', () => {
       
       // 假设从邮件或数据库中获取token（实际需要模拟）
       validToken = 'valid-reset-token-123456';
+      // Note: Skipping actual token validation - requires email system
+      console.log('Note: reset-password test requires actual token from email or database');
     });
 
     test('正常场景 - 有效token重置密码成功', async () => {
