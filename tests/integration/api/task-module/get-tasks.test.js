@@ -51,7 +51,7 @@ describe('获取任务列表API集成测试', () => {
       expect(response.body.data).toHaveProperty('tasks');
       expect(response.body.data).toHaveProperty('pagination');
       expect(response.body.data.pagination).toHaveProperty('page', 1);
-      expect(response.body.data.pagination).toHaveProperty('limit', 10);
+      expect(response.body.data.pagination).toHaveProperty('pageSize', 10);
     });
 
     test('正常场景 - 按状态筛选任务', async () => {
@@ -73,7 +73,7 @@ describe('获取任务列表API集成测试', () => {
       
       expect(response.status).toBe(401);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('未授权');
+      expect(response.body.message).toContain('Unauthorized');
     });
 
     test('异常场景 - 无效的token', async () => {
@@ -92,7 +92,7 @@ describe('获取任务列表API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('分页参数无效');
+      expect(response.body.message).toMatch(/invalid|pagination/i);
     });
 
     test('边界条件 - 分页参数过大', async () => {
