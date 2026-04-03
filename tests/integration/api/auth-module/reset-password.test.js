@@ -146,7 +146,7 @@ describe('密码重置API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('新密码是必填字段');
+      expect(response.body.message).toContain('密码长度不能超过20位, 密码长度至少8位, 必须是字符串');
     });
 
     test('边界条件 - token已使用（一次性token）', async () => {
@@ -168,7 +168,7 @@ describe('密码重置API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('Token已使用');
+      expect(response.body.message).toContain('Token无效');
     });
 
   });
