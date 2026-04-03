@@ -35,10 +35,15 @@ describe('获取任务详情API集成测试', () => {
       .post('/api/v1/tasks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        title: `TestTaskDetail_${Date.now()}`
+        title: `TestTaskDetail_${Date.now()}`,
+        description: 'Task for detail testing'
       });
     
-    taskId = createResponse.body.data.id;
+    if (createResponse.status === 201) {
+      taskId = createResponse.body.data.id;
+    } else {
+      console.log('Failed to create task for get-detail test:', createResponse.body);
+    }
   });
   
   describe('GET /api/v1/tasks/:id', () => {

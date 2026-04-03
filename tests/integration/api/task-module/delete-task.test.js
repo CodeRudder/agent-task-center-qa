@@ -35,10 +35,15 @@ describe('删除任务API集成测试', () => {
       .post('/api/v1/tasks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        title: '测试删除任务'
+        title: `TestDeleteTask_${Date.now()}`,
+        description: 'Task for deletion testing'
       });
     
-    taskId = createResponse.body.data.id;
+    if (createResponse.status === 201) {
+      taskId = createResponse.body.data.id;
+    } else {
+      console.log('Failed to create task for delete test:', createResponse.body);
+    }
   });
   
   describe('DELETE /api/v1/tasks/:id', () => {

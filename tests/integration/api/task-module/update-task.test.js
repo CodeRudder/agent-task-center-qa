@@ -35,12 +35,17 @@ describe('更新任务API集成测试', () => {
       .post('/api/v1/tasks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        title: '测试更新任务',
+        title: `TestUpdateTask_${Date.now()}`,
         status: 'pending',
-        priority: 'medium'
+        priority: 'medium',
+        description: 'Task for update testing'
       });
     
-    taskId = createResponse.body.data.id;
+    if (createResponse.status === 201) {
+      taskId = createResponse.body.data.id;
+    } else {
+      console.log('Failed to create task for update test:', createResponse.body);
+    }
   });
   
   describe('PUT /api/v1/tasks/:id', () => {
