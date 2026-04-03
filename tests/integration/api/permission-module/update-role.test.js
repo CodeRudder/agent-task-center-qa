@@ -27,12 +27,17 @@ describe('更新角色API集成测试', () => {
       .post('/api/v1/roles')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        name: '测试更新角色',
+        name: `测试更新角色_${Date.now()}`,
         permissions: {
           tasks: ['view']
         }
       });
-    roleId = createResponse.body.data.id;
+    
+    if (createResponse.status === 201) {
+      roleId = createResponse.body.data.id;
+    } else {
+      console.log('Failed to create role for update test:', createResponse.body);
+    }
   });
   
   describe('PUT /api/v1/roles/:id', () => {
