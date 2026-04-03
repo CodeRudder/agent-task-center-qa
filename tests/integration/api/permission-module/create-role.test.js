@@ -26,11 +26,12 @@ describe('创建角色API集成测试', () => {
   describe('POST /api/v1/roles', () => {
     
     test('正常场景 - 创建角色成功', async () => {
+      const uniqueRoleName = `测试角色_${Date.now()}`;
       const response = await request(API_BASE_URL)
         .post('/api/v1/roles')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          name: '测试角色',
+          name: uniqueRoleName,
           description: '这是一个测试角色',
           permissions: {
             tasks: ['view', 'create'],
@@ -40,7 +41,7 @@ describe('创建角色API集成测试', () => {
       
       expect(response.status).toBe(201);
       expect(response.body).toHaveProperty('success', true);
-      expect(response.body.data).toHaveProperty('name', '测试角色');
+      expect(response.body.data).toHaveProperty('name', uniqueRoleName);
     });
 
     test('异常场景 - 缺少名称', async () => {
