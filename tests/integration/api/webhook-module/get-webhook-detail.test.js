@@ -25,7 +25,7 @@ describe('获取Webhook详情API集成测试', () => {
       .post('/api/v1/webhooks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        name: '测试Webhook详情',
+        name: `TestWebhookDetail_${Date.now()}`,
         url: 'https://example.com/webhook'
       });
     webhookId = createResponse.body.data.id;

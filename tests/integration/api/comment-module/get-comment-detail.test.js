@@ -28,7 +28,7 @@ describe('获取评论详情API集成测试', () => {
       .post('/api/v1/tasks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        title: '测试评论详情'
+        title: `TestCommentDetail_${Date.now()}`
       });
     taskId = createResponse.body.data.id;
     
@@ -36,7 +36,7 @@ describe('获取评论详情API集成测试', () => {
       .post(`/api/v1/tasks/${taskId}/comments`)
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        content: '测试评论'
+        content: `Test comment_${Date.now()}`
       });
     commentId = commentResponse.body.data.id;
   });

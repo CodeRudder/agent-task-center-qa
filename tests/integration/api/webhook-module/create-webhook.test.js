@@ -30,7 +30,7 @@ describe('创建Webhook API集成测试', () => {
         .post('/api/v1/webhooks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          name: '测试Webhook',
+          name: `TestWebhook_${Date.now()}`,
           url: 'https://example.com/webhook',
           events: ['task.created', 'task.updated'],
           projectId: 'adacb6d2-44a5-424d-8983-2eb6bfe3b2c4'
@@ -58,7 +58,7 @@ describe('创建Webhook API集成测试', () => {
         .post('/api/v1/webhooks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          name: '测试Webhook',
+          name: `TestWebhook_${Date.now()}`,
           url: 'invalid-url'
         });
       

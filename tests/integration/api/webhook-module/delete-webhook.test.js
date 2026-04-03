@@ -25,7 +25,7 @@ describe('删除Webhook API集成测试', () => {
       .post('/api/v1/webhooks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        name: '测试删除Webhook',
+        name: `TestDeleteWebhook_${Date.now()}`,
         url: 'https://example.com/webhook'
       });
     webhookId = createResponse.body.data.id;

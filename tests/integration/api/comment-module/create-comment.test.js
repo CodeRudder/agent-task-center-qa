@@ -27,7 +27,7 @@ describe('创建评论API集成测试', () => {
       .post('/api/v1/tasks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        title: '测试评论任务'
+        title: `TestCommentTask_${Date.now()}`
       });
     taskId = createResponse.body.data.id;
   });
@@ -39,7 +39,7 @@ describe('创建评论API集成测试', () => {
         .post(`/api/v1/tasks/${taskId}/comments`)
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          content: '这是一条测试评论'
+          content: `This is a test comment_${Date.now()}`
         });
       
       expect(response.status).toBe(201);

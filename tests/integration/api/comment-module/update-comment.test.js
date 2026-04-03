@@ -28,7 +28,7 @@ describe('更新评论API集成测试', () => {
       .post('/api/v1/tasks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        title: '测试更新评论'
+        title: `TestUpdateComment_${Date.now()}`
       });
     taskId = createResponse.body.data.id;
     

@@ -28,7 +28,7 @@ describe('删除评论API集成测试', () => {
       .post('/api/v1/tasks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        title: '测试删除评论'
+        title: `TestDeleteComment_${Date.now()}`
       });
     taskId = createResponse.body.data.id;
     
@@ -36,7 +36,7 @@ describe('删除评论API集成测试', () => {
       .post(`/api/v1/tasks/${taskId}/comments`)
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        content: '测试评论'
+        content: `Test comment_${Date.now()}`
       });
     commentId = commentResponse.body.data.id;
   });

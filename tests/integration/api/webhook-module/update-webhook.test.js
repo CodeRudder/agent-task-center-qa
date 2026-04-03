@@ -27,7 +27,7 @@ describe('更新Webhook API集成测试', () => {
       .post('/api/v1/webhooks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        name: '测试更新Webhook',
+        name: `TestUpdateWebhook_${Date.now()}`,
         url: 'https://example.com/webhook',
         events: ['task.created'],
         projectId: 'adacb6d2-44a5-424d-8983-2eb6bfe3b2c4'
