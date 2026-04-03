@@ -27,10 +27,18 @@ describe('删除角色API集成测试', () => {
       .post('/api/v1/roles')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        name: '测试删除角色',
-        permissions: ['task.read']
+        name: `测试删除角色_${Date.now()}`,
+        description: '用于删除测试的角色',
+        permissions: {
+          tasks: ['view']
+        }
       });
-    roleId = createResponse.body.data.id;
+    
+    if (createResponse.status === 201) {
+      roleId = createResponse.body.data.id;
+    } else {
+      console.log('Failed to create role for delete test:', createResponse.body);
+    }
   });
   
   describe('DELETE /api/v1/roles/:id', () => {

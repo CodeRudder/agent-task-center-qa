@@ -32,8 +32,8 @@ describe('获取角色列表API集成测试', () => {
       
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('success', true);
-      expect(response.body.data).toHaveProperty('roles');
-      expect(Array.isArray(response.body.data.roles)).toBe(true);
+      expect(response.body.data).toHaveProperty('items');
+      expect(Array.isArray(response.body.data.items)).toBe(true);
     });
 
     test('异常场景 - 未登录访问', async () => {

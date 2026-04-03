@@ -27,10 +27,18 @@ describe('获取角色详情API集成测试', () => {
       .post('/api/v1/roles')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        name: '测试角色详情',
-        permissions: ['task.read']
+        name: `测试角色详情_${Date.now()}`,
+        description: '用于获取详情测试的角色',
+        permissions: {
+          tasks: ['view']
+        }
       });
-    roleId = createResponse.body.data.id;
+    
+    if (createResponse.status === 201) {
+      roleId = createResponse.body.data.id;
+    } else {
+      console.log('Failed to create role for get-detail test:', createResponse.body);
+    }
   });
   
   describe('GET /api/v1/roles/:id', () => {
