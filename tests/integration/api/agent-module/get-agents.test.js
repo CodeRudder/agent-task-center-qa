@@ -32,8 +32,8 @@ describe('获取Agent列表API集成测试', () => {
       
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('success', true);
-      expect(response.body.data).toHaveProperty('agents');
-      expect(Array.isArray(response.body.data.agents)).toBe(true);
+      expect(response.body.data).toHaveProperty('items');
+      expect(Array.isArray(response.body.data.items)).toBe(true);
     });
 
     test('正常场景 - 分页查询Agent列表', async () => {
@@ -43,7 +43,7 @@ describe('获取Agent列表API集成测试', () => {
       
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('success', true);
-      expect(response.body.data).toHaveProperty('agents');
+      expect(response.body.data).toHaveProperty('items');
     });
 
     test('异常场景 - 未登录访问', async () => {
