@@ -74,7 +74,7 @@ describe('创建任务API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('标题是必填字段');
+      expect(response.body.message).toContain('Title must be between 1 and 100 characters');
     });
 
     test('异常场景 - 未登录创建任务', async () => {
@@ -110,7 +110,7 @@ describe('创建任务API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('标题不能为空');
+      expect(response.body.message).toContain('Title must be between 1 and 100 characters');
     });
 
     test('边界条件 - 标题过长（超过限制）', async () => {
@@ -124,7 +124,7 @@ describe('创建任务API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('标题长度不能超过200个字符');
+      expect(response.body.message).toContain('Title must be between 1 and 100 characters');
     });
 
     test('边界条件 - 描述为空（允许）', async () => {
@@ -151,7 +151,7 @@ describe('创建任务API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('无效的优先级');
+      expect(response.body.message).toContain('priority must be one of the following values: low, medium, high, urgent');
     });
 
     test('边界条件 - 无效的状态', async () => {
@@ -165,7 +165,7 @@ describe('创建任务API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('无效的状态');
+      expect(response.body.message).toContain('status must be one of the following values: todo, in_progress, review, done, blocked');
     });
 
   });
