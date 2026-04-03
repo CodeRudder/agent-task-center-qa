@@ -58,7 +58,7 @@ describe('更新评论API集成测试', () => {
 
     test('异常场景 - 评论不存在', async () => {
       const response = await request(API_BASE_URL)
-        .put(`/api/v1/tasks/${taskId}/comments/nonexistent-id`)
+        .put(`/api/v1/tasks/${taskId}/comments/00000000-0000-0000-0000-000000000000`)
         .set('Authorization', `Bearer ${authToken}`)
         .send({
           content: '更新内容'

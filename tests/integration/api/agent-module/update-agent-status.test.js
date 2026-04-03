@@ -73,7 +73,7 @@ describe('更新Agent状态API集成测试', () => {
 
     test('异常场景 - Agent不存在', async () => {
       const response = await request(API_BASE_URL)
-        .put('/api/v1/agents/nonexistent-id/status')
+        .put('/api/v1/agents/00000000-0000-0000-0000-000000000000/status')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
           status: 'active'

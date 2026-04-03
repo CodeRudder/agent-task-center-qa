@@ -55,7 +55,7 @@ describe('获取评论详情API集成测试', () => {
 
     test('异常场景 - 评论不存在', async () => {
       const response = await request(API_BASE_URL)
-        .get(`/api/v1/tasks/${taskId}/comments/nonexistent-id`)
+        .get(`/api/v1/tasks/${taskId}/comments/00000000-0000-0000-0000-000000000000`)
         .set('Authorization', `Bearer ${authToken}`);
       
       expect(response.status).toBe(404);

@@ -44,7 +44,7 @@ describe('删除Webhook API集成测试', () => {
 
     test('异常场景 - Webhook不存在', async () => {
       const response = await request(API_BASE_URL)
-        .delete('/api/v1/webhooks/nonexistent-id')
+        .delete('/api/v1/webhooks/00000000-0000-0000-0000-000000000000')
         .set('Authorization', `Bearer ${authToken}`);
       
       expect(response.status).toBe(404);

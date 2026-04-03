@@ -54,7 +54,7 @@ describe('获取Agent详情API集成测试', () => {
 
     test('异常场景 - Agent不存在', async () => {
       const response = await request(API_BASE_URL)
-        .get('/api/v1/agents/nonexistent-id')
+        .get('/api/v1/agents/00000000-0000-0000-0000-000000000000')
         .set('Authorization', `Bearer ${authToken}`);
       
       expect(response.status).toBe(404);

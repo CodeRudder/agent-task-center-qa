@@ -47,7 +47,7 @@ describe('获取评论列表API集成测试', () => {
 
     test('异常场景 - 任务不存在', async () => {
       const response = await request(API_BASE_URL)
-        .get('/api/v1/tasks/nonexistent-id/comments')
+        .get('/api/v1/tasks/00000000-0000-0000-0000-000000000000/comments')
         .set('Authorization', `Bearer ${authToken}`);
       
       expect(response.status).toBe(404);

@@ -57,7 +57,7 @@ describe('更新角色API集成测试', () => {
 
     test('异常场景 - 角色不存在', async () => {
       const response = await request(API_BASE_URL)
-        .put('/api/v1/roles/nonexistent-id')
+        .put('/api/v1/roles/00000000-0000-0000-0000-000000000000')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
           name: '更新名称'

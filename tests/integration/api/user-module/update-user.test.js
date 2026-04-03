@@ -42,7 +42,7 @@ describe('更新用户API集成测试', () => {
 
     test('异常场景 - 用户不存在', async () => {
       const response = await request(API_BASE_URL)
-        .put('/api/v1/users/nonexistent-id')
+        .put('/api/v1/users/00000000-0000-0000-0000-000000000000')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
           name: '更新名称'

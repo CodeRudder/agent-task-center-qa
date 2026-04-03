@@ -49,7 +49,7 @@ describe('测试Webhook API集成测试', () => {
 
     test('异常场景 - Webhook不存在', async () => {
       const response = await request(API_BASE_URL)
-        .post('/api/v1/webhooks/nonexistent-id/test')
+        .post('/api/v1/webhooks/00000000-0000-0000-0000-000000000000/test')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
           testData: { message: '测试数据' }
