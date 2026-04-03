@@ -27,7 +27,7 @@ describe('删除API密钥API集成测试', () => {
       .post('/api/v1/api-keys')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        name: '测试删除API密钥',
+        name: 'Test Delete API Key',
         scopes: ['read']
       });
     apiKeyId = createResponse.body.data.id;

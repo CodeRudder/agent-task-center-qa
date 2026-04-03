@@ -30,14 +30,14 @@ describe('创建API密钥API集成测试', () => {
         .post('/api/v1/api-keys')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          name: '测试API密钥',
+          name: 'Test API Key',
           scopes: ['read', 'write']
         });
       
       expect(response.status).toBe(201);
       expect(response.body).toHaveProperty('success', true);
       expect(response.body.data).toHaveProperty('apiKey');
-      expect(response.body.data).toHaveProperty('name', '测试API密钥');
+      expect(response.body.data).toHaveProperty('name', 'Test API Key');
       expect(response.body.data).toHaveProperty('secretKey');
     });
 
@@ -58,7 +58,7 @@ describe('创建API密钥API集成测试', () => {
         .post('/api/v1/api-keys')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          name: '测试API密钥',
+          name: 'Test API Key',
           scopes: ['invalid-scope']
         });
       
