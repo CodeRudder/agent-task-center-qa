@@ -50,7 +50,7 @@ describe('更新任务API集成测试', () => {
         .put(`/api/v1/tasks/${taskId}`)
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          title: '更新后的任务标题',
+          title: `UpdatedTaskTitle_${Date.now()}`,
           status: 'in-progress',
           priority: 'high'
         });

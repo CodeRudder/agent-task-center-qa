@@ -35,7 +35,7 @@ describe('获取任务详情API集成测试', () => {
       .post('/api/v1/tasks')
       .set('Authorization', `Bearer ${authToken}`)
       .send({
-        title: '测试任务详情'
+        title: `TestTaskDetail_${Date.now()}`
       });
     
     taskId = createResponse.body.data.id;

@@ -37,8 +37,8 @@ describe('创建任务API集成测试', () => {
         .post('/api/v1/tasks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          title: '测试任务',
-          description: '这是一个测试任务',
+          title: `TestTask_${Date.now()}`,
+          description: `This is a test task_${Date.now()}`,
           status: 'pending',
           priority: 'medium',
           dueDate: '2026-12-31'
@@ -56,7 +56,7 @@ describe('创建任务API集成测试', () => {
         .post('/api/v1/tasks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          title: '最小测试任务'
+          title: `MinimalTestTask_${Date.now()}`
         });
       
       expect(response.status).toBe(201);
@@ -69,7 +69,7 @@ describe('创建任务API集成测试', () => {
         .post('/api/v1/tasks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          description: '这是一个测试任务'
+          description: `This is a test task_${Date.now()}`
         });
       
       expect(response.status).toBe(400);
@@ -81,7 +81,7 @@ describe('创建任务API集成测试', () => {
       const response = await request(API_BASE_URL)
         .post('/api/v1/tasks')
         .send({
-          title: '测试任务'
+          title: `TestTask_${Date.now()}`
         });
       
       expect(response.status).toBe(401);
@@ -93,7 +93,7 @@ describe('创建任务API集成测试', () => {
         .post('/api/v1/tasks')
         .set('Authorization', 'Bearer invalid-token-123456')
         .send({
-          title: '测试任务'
+          title: `TestTask_${Date.now()}`
         });
       
       expect(response.status).toBe(401);
@@ -132,7 +132,7 @@ describe('创建任务API集成测试', () => {
         .post('/api/v1/tasks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          title: '测试任务',
+          title: `TestTask_${Date.now()}`,
           description: ''
         });
       
@@ -145,7 +145,7 @@ describe('创建任务API集成测试', () => {
         .post('/api/v1/tasks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          title: '测试任务',
+          title: `TestTask_${Date.now()}`,
           priority: 'invalid-priority'
         });
       
@@ -159,7 +159,7 @@ describe('创建任务API集成测试', () => {
         .post('/api/v1/tasks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          title: '测试任务',
+          title: `TestTask_${Date.now()}`,
           status: 'invalid-status'
         });
       
