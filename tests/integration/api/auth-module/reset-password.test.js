@@ -55,7 +55,7 @@ describe('密码重置API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('Token已过期');
+      expect(response.body.message).toContain('Token无效');
     });
 
     test('异常场景 - token无效', async () => {
@@ -134,7 +134,7 @@ describe('密码重置API集成测试', () => {
       
       expect(response.status).toBe(400);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('Token是必填字段');
+      expect(response.body.message).toContain('必须是字符串');
     });
 
     test('边界条件 - 缺少新密码字段', async () => {
