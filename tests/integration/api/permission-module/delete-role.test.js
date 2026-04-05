@@ -7,7 +7,7 @@
 const request = require('supertest');
 
 // API baseURL
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:4100';
 
 describe('删除角色API集成测试', () => {
   

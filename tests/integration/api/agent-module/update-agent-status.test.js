@@ -7,7 +7,7 @@
 const request = require('supertest');
 
 // API baseURL
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:4100';
 
 describe('更新Agent状态API集成测试', () => {
   
@@ -28,8 +28,8 @@ describe('更新Agent状态API集成测试', () => {
       .get('/api/v1/agents')
       .set('Authorization', `Bearer ${authToken}`);
     
-    if (agentsResponse.body.data.agents.length > 0) {
-      agentId = agentsResponse.body.data.agents[0].id;
+    if (agentsResponse.body.data.items.length > 0) {
+      agentId = agentsResponse.body.data.items[0].id;
     }
   });
   

@@ -12,7 +12,7 @@
 const request = require('supertest');
 
 // API baseURL
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:4100';
 
 describe('创建任务API集成测试', () => {
   
@@ -33,13 +33,14 @@ describe('创建任务API集成测试', () => {
   describe('POST /api/v1/tasks', () => {
     
     test('正常场景 - 创建任务成功', async () => {
+      const taskTitle = `TestTask_${Date.now()}`;
       const response = await request(API_BASE_URL)
         .post('/api/v1/tasks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          title: `TestTask_${Date.now()}`,
+          title: taskTitle,
           description: `This is a test task_${Date.now()}`,
-          status: 'pending',
+          status: 'todo',
           priority: 'medium',
           dueDate: '2026-12-31'
         });
@@ -47,21 +48,22 @@ describe('创建任务API集成测试', () => {
       expect(response.status).toBe(201);
       expect(response.body).toHaveProperty('success', true);
       expect(response.body.data).toHaveProperty('id');
-      expect(response.body.data).toHaveProperty('title', '测试任务');
-      expect(response.body.data).toHaveProperty('status', 'pending');
+      expect(response.body.data).toHaveProperty('title', taskTitle);
+      expect(response.body.data).toHaveProperty('status', 'todo');
     });
 
     test('正常场景 - 创建任务（最小必填字段）', async () => {
+      const taskTitle = `MinimalTestTask_${Date.now()}`;
       const response = await request(API_BASE_URL)
         .post('/api/v1/tasks')
         .set('Authorization', `Bearer ${authToken}`)
         .send({
-          title: `MinimalTestTask_${Date.now()}`
+          title: taskTitle
         });
       
       expect(response.status).toBe(201);
       expect(response.body).toHaveProperty('success', true);
-      expect(response.body.data).toHaveProperty('title', '最小测试任务');
+      expect(response.body.data).toHaveProperty('title', taskTitle);
     });
 
     test('异常场景 - 缺少标题字段', async () => {

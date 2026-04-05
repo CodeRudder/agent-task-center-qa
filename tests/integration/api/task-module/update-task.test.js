@@ -12,7 +12,7 @@
 const request = require('supertest');
 
 // API baseURL
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:4100';
 
 describe('更新任务API集成测试', () => {
   
@@ -36,7 +36,7 @@ describe('更新任务API集成测试', () => {
       .set('Authorization', `Bearer ${authToken}`)
       .send({
         title: `TestUpdateTask_${Date.now()}`,
-        status: 'pending',
+        status: 'todo',
         priority: 'medium',
         description: 'Task for update testing'
       });
@@ -64,7 +64,7 @@ describe('更新任务API集成测试', () => {
       expect(response.body).toHaveProperty('success', true);
       expect(response.body.data).toHaveProperty('id', taskId);
       expect(response.body.data).toHaveProperty('title', '更新后的任务标题');
-      expect(response.body.data).toHaveProperty('status', 'in-progress');
+      expect(response.body.data).toHaveProperty('status', 'in_progress');
       expect(response.body.data).toHaveProperty('priority', 'high');
       expect(response.body.data).toHaveProperty('updatedAt');
     });
@@ -79,7 +79,7 @@ describe('更新任务API集成测试', () => {
       
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('success', true);
-      expect(response.body.data).toHaveProperty('status', 'completed');
+      expect(response.body.data).toHaveProperty('status', 'done');
       expect(response.body.data).toHaveProperty('title', '更新后的任务标题');
     });
 

@@ -13,7 +13,7 @@
 const request = require('supertest');
 
 // API baseURL
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:4100';
 
 describe('用户登录API集成测试', () => {
 
@@ -45,7 +45,7 @@ describe('用户登录API集成测试', () => {
       
       expect(response.status).toBe(401);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('邮箱或密码错误');
+      expect(response.body.message).toContain('用户名或密码错误');
     });
 
     test('异常场景 - 用户不存在登录失败', async () => {
@@ -58,7 +58,7 @@ describe('用户登录API集成测试', () => {
       
       expect(response.status).toBe(401);
       expect(response.body).toHaveProperty('success', false);
-      expect(response.body.message).toContain('邮箱或密码错误');
+      expect(response.body.message).toContain('用户名或密码错误');
     });
 
     test('边界条件 - 缺少邮箱字段', async () => {
@@ -134,7 +134,7 @@ describe('用户登录API集成测试', () => {
       expect(response.status).toBe(401);
       expect(response.body.message).not.toContain('用户不存在');
       expect(response.body.message).not.toContain('密码错误');
-      expect(response.body.message).toContain('邮箱或密码错误');
+      expect(response.body.message).toContain('用户名或密码错误');
     });
 
   });

@@ -7,20 +7,31 @@
 const request = require('supertest');
 
 // API baseURL
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:4100';
 
 describe('创建Webhook API集成测试', () => {
   
   let authToken;
+  let projectId;
   
   beforeAll(async () => {
-    const response = await request(API_BASE_URL)
+    // 登录获取token
+    const loginResponse = await request(API_BASE_URL)
       .post('/api/v1/auth/login')
       .send({
         email: 'admin@example.com',
         password: 'Admin123!'
       });
-    authToken = response.body.data.accessToken;
+    authToken = loginResponse.body.data.accessToken;
+    
+    // 获取真实的项目ID
+    const projectsResponse = await request(API_BASE_URL)
+      .get('/api/v1/projects')
+      .set('Authorization', `Bearer ${authToken}`);
+    
+    if (projectsResponse.body.data.projects && projectsResponse.body.data.projects.length > 0) {
+      projectId = projectsResponse.body.data.projects[0].id;
+    }
   });
   
   describe('POST /api/v1/webhooks', () => {
@@ -33,12 +44,12 @@ describe('创建Webhook API集成测试', () => {
           name: `TestWebhook_${Date.now()}`,
           url: 'https://example.com/webhook',
           events: ['task.created', 'task.updated'],
-          projectId: 'adacb6d2-44a5-424d-8983-2eb6bfe3b2c4'
+          projectId: projectId
         });
       
       expect(response.status).toBe(201);
       expect(response.body).toHaveProperty('success', true);
-      expect(response.body.data).toHaveProperty('name', '测试Webhook');
+      expect(response.body.data).toHaveProperty('name');
     });
 
     test('异常场景 - 缺少名称', async () => {

@@ -7,7 +7,7 @@
 const request = require('supertest');
 
 // API baseURL
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:4100';
 
 describe('风险预警报表API集成测试', () => {
   
@@ -23,11 +23,11 @@ describe('风险预警报表API集成测试', () => {
     authToken = response.body.data.accessToken;
   });
   
-  describe('GET /api/v1/reports/risk', () => {
+  describe('GET /api/v1/reports/risks', () => {
     
     test('正常场景 - 获取风险预警报表成功', async () => {
       const response = await request(API_BASE_URL)
-        .get('/api/v1/reports/risk')
+        .get('/api/v1/reports/risks')
         .set('Authorization', `Bearer ${authToken}`)
         .query({
           threshold: 'high'
@@ -41,7 +41,7 @@ describe('风险预警报表API集成测试', () => {
 
     test('正常场景 - 获取中等风险预警', async () => {
       const response = await request(API_BASE_URL)
-        .get('/api/v1/reports/risk')
+        .get('/api/v1/reports/risks')
         .set('Authorization', `Bearer ${authToken}`)
         .query({
           threshold: 'medium'
@@ -53,7 +53,7 @@ describe('风险预警报表API集成测试', () => {
 
     test('异常场景 - 无效的风险阈值', async () => {
       const response = await request(API_BASE_URL)
-        .get('/api/v1/reports/risk')
+        .get('/api/v1/reports/risks')
         .set('Authorization', `Bearer ${authToken}`)
         .query({
           threshold: 'invalid-threshold'
@@ -65,7 +65,7 @@ describe('风险预警报表API集成测试', () => {
 
     test('异常场景 - 未登录访问', async () => {
       const response = await request(API_BASE_URL)
-        .get('/api/v1/reports/risk')
+        .get('/api/v1/reports/risks')
         .query({
           threshold: 'high'
         });
